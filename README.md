@@ -1,3 +1,18 @@
+<p align="center">
+  <img width="128" height="128" alt="logo" src="https://github.com/user-attachments/assets/662573b5-d4bb-4ea1-933f-e128e646c395" />
+</p>
+
+
+<h3 align="center">
+  <b>WG-Win-Check</b>
+</h3>
+
+<p align="center">
+  一款轻量便捷的 Windows 应急响应辅助工具
+</p>
+
+
+
 ## 简介
 
 WG-Win-Check 是一款基于原生 Win32 API 实现的轻量级的 Windows 应急响应辅助工具，目前 64 位版本大小仅 600 余Kb，旨在以轻量便捷的特性，通过多维度的系统常规排查，能够有效帮助安全人员快速识别恶意进程、可疑启动项、异常网络连接等安全风险。
