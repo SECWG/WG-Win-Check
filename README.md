@@ -39,7 +39,7 @@ WG-Win-Check 是一款基于原生 Win32 API 实现的轻量级的 Windows 应�
 
 ### 启动项排查
 
-扫描系统常见启动项，包括：注册表启动项（Run、RunOnce、RunServices）、启动文件夹、Winlogon 劫持、IFEO（映像劫持）等其他驻留手段。
+扫描系统常见自启动项，包括：注册表启动项（Run、RunOnce、RunServices）、启动文件夹、Winlogon、IFEO、AppInit_DLLs、RunOnceEx、WMI 订阅等驻留手段。
 <img width="1245" height="646" alt="image" src="https://github.com/user-attachments/assets/6895fd92-6ebf-4eea-bb13-bf31a9d5297f" />
 
 
@@ -96,6 +96,12 @@ WG-Win-Check 是一款基于原生 Win32 API 实现的轻量级的 Windows 应�
     
 
 ## 更新日志
+
+### v1.7.0 (2026-07-05)
+
+1. 【新增】自启动项新增 WMI 订阅采集，支持识别 CommandLineEventConsumer 与 ActiveScriptEventConsumer
+2. 【新增】进程、服务、自启动项、计划任务列表新增文件图标展示，便于快速区分程序来源
+3. 【优化】收敛白加黑利用判定规则，进一步降低噪声
 
 ### v1.6.0 (2026-06-27)
 
