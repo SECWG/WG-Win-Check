@@ -11,7 +11,25 @@
   一款轻量便捷的 Windows 应急响应辅助工具
 </p>
 
+<p align="center">
+  <a href="https://github.com/SECWG/WG-Win-Check/stargazers">
+    <img src="https://img.shields.io/github/stars/SECWG/WG-Win-Check?style=flat-square&color=yellow" alt="Stars"/>
+  </a>
+  <a href="https://github.com/SECWG/WG-Win-Check/network/members">
+    <img src="https://img.shields.io/github/forks/SECWG/WG-Win-Check?style=flat-square&color=orange" alt="Forks"/>
+  </a>
+  <a href="https://github.com/SECWG/WG-Win-Check/releases">
+    <img src="https://img.shields.io/github/v/release/SECWG/WG-Win-Check?style=flat-square&color=blue" alt="Release"/>
+  </a>
+  <a href="https://github.com/SECWG/WG-Win-Check/releases">
+    <img src="https://img.shields.io/github/downloads/SECWG/WG-Win-Check/total?style=flat-square&color=brightgreen" alt="Downloads"/>
+  </a>
+  <a href="https://github.com/SECWG/WG-Win-Check#readme">
+    <img src="https://img.shields.io/badge/platform-Windows-blue?style=flat-square&logo=windows" alt="Platform"/>
+  </a>
+</p>
 
+  
 
 ## 简介
 
