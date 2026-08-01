@@ -37,73 +37,87 @@ WG-Win-Check 是一款基于原生 Win32 API 实现的轻量级的 Windows 应�
 
 ## 核心功能
 
+### 风险概览
+
+汇总核心模块产生的风险信息，用于快速查看当前主机最值得优先核查的对象。
+
+<img width="1281" height="655" alt="image" src="https://github.com/user-attachments/assets/bb9167cd-f845-4561-bddc-8cfe08b432f8" />
+
+
 ### 用户排查
 
 枚举系统所有用户账户（包括隐藏用户）基础信息、识别克隆账户和异常权限。
-<img width="1178" height="489" alt="image" src="https://github.com/user-attachments/assets/fb9c36c2-8772-4074-a8fd-a4c20dd0e65b" />
+<img width="1315" height="655" alt="image" src="https://github.com/user-attachments/assets/7e28c55e-fdb1-46f4-9684-3820ed9adf4b" />
+
 
 
 ### 进程排查
 
 监控列举系统所有进程，展示基础进程信息字段，支持按进程类型、签名、关键字过滤。提供进程树、DLL 模块、执行文件 hash、在线验证、签名校验以及进程结束操作。
-<img width="1186" height="495" alt="image" src="https://github.com/user-attachments/assets/2c77d844-80bc-4b2c-9056-1b1262673636" />
-<img width="1242" height="648" alt="image" src="https://github.com/user-attachments/assets/c9a76487-de0c-4bad-b9cd-310ce568f0ac" />
+
+<img width="1313" height="660" alt="image" src="https://github.com/user-attachments/assets/a45476fa-a507-4fec-8945-464fddc685e8" />
+<img width="1318" height="660" alt="image" src="https://github.com/user-attachments/assets/93dd82e2-6583-4a9f-bbd8-2e1502f93c69" />
+
+
 
 ### 网络连接排查
 
 监控所有 TCP/UDP 连接 ，展示基础连接信息及关联进程，支持按协议、状态、外联、关键字进行快速过滤筛选，提供一键提取所有外联 IP。
-<img width="1245" height="650" alt="image" src="https://github.com/user-attachments/assets/cab25d08-fa68-4f68-91bc-5309ade843ef" />
+
+<img width="1314" height="660" alt="image" src="https://github.com/user-attachments/assets/61608258-799a-4d59-8747-09f307cf0fef" />
+
 
 
 ### 启动项排查
 
 扫描系统常见自启动项，包括：注册表启动项（Run、RunOnce、RunServices）、启动文件夹、Winlogon、IFEO、AppInit_DLLs、RunOnceEx、WMI 订阅等驻留手段。
-<img width="1245" height="646" alt="image" src="https://github.com/user-attachments/assets/6895fd92-6ebf-4eea-bb13-bf31a9d5297f" />
+
+<img width="1315" height="657" alt="image" src="https://github.com/user-attachments/assets/1a824b66-fdef-447d-9203-24ebc2b7a416" />
+
 
 
 ### 服务排查
 
 枚举所有系统服务，可基于服务类型、签名、启动类型、服务状态进行过滤，包含签名校验及其他基础风险高亮规则，同时可快捷管理服务。
-<img width="1243" height="647" alt="image" src="https://github.com/user-attachments/assets/c4ef2218-fe1a-4fc4-9768-f61e7b8d619b" />
+
+<img width="1317" height="655" alt="image" src="https://github.com/user-attachments/assets/aa24ab2e-ffda-4020-8b33-6c04cc089b32" />
+
 
 
 ### 计划任务排查
 
 列举所有计划任务，展示基础信息包括执行程序、文件路径、运行实际等，支持类型(系统/用户)、运行状态、关键字快速过滤。提供基础计划任务暂停、运行、删除等快捷操作。
-<img width="1244" height="646" alt="image" src="https://github.com/user-attachments/assets/7c1ed08b-46fe-4662-9eb0-72839b2acd74" />
+
+<img width="1315" height="658" alt="image" src="https://github.com/user-attachments/assets/2ca07bb9-bd9a-44f4-ad9f-5728178a3818" />
+
 
 
 ### 文件排查
 
 扫描常见的恶意文件落地目录包括下载、临时目录，过滤常见的恶意文件落地类型，支持自定义扫描路径如微信、飞书文件下载路径的扫描。
-<img width="1242" height="649" alt="image" src="https://github.com/user-attachments/assets/8c17f6ae-133c-4331-892f-912676520aad" />
+
+<img width="1314" height="656" alt="image" src="https://github.com/user-attachments/assets/85a58e4a-02ad-4381-ad62-0bcdaebb0e6e" />
+
 
 
 ### 事件日志排查
 
 提供常见事件类型包括登录、进程创建、日志清除的排查，以及快速关联打开操作。
-<img width="1248" height="651" alt="image" src="https://github.com/user-attachments/assets/b245fb92-b0e4-463f-bc09-1c6411b08b31" />
+
+<img width="1311" height="658" alt="image" src="https://github.com/user-attachments/assets/90a46ef5-4da4-4811-93c8-27182fd7af48" />
+
 
 
 ### 威胁检索
 
 基于 IOC 进程内存特征的威胁检索，检索上下文，便于快速定位快速定位可疑进程。
-<img width="1182" height="511" alt="image" src="https://github.com/user-attachments/assets/7d7fb287-5995-4f50-81a8-159158972c2c" />
+
+<img width="1310" height="653" alt="image" src="https://github.com/user-attachments/assets/b8d3f6d4-2c39-4225-8cdb-50f2baf80d06" />
+
 
 ### 活动痕迹
 聚合用户常见活动，解析UserAssist、Prefetch、最近访问、登录等多种活动来源，梳理程序执行、最近访问等活动时间线。
-<img width="1173" height="571" alt="image" src="https://github.com/user-attachments/assets/905218bb-f67b-4104-9f71-588bf1aab6ef" />
-    
-
-## 系统要求
-
--   **操作系统**：Windows 10 / 11，目前仅两个系统进行测试，原则上其他版本皆可支持。
-    
--   **架构**：目前仅 x64。
-    
--   **权限**：建议以管理员权限运行，否则影响扫描结果以及部分功能。
-    
--   **依赖**：无需安装任何运行库，开箱即用。
+<img width="1315" height="653" alt="image" src="https://github.com/user-attachments/assets/659acc7b-27ea-420a-a8b5-130d42d87264" />
     
 
 ## 获取方式
