@@ -121,8 +121,6 @@ WG-Win-Check 是一款基于原生 Win32 API 实现的轻量级的 Windows 应�
     
 
 ## 获取方式
-
--   官方网站：https://secwg.com/archives/019bb7f1-85d2-7799-acfe-70bc2b7064ed
     
 -   Github 下载：[https://github.com/SECWG/WG-Win-Check/releases](https://github.com/SECWG/WG-Win-Check/releases)
     
