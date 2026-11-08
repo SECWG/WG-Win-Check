@@ -130,6 +130,10 @@ Supported configurations are `ReleaseMT` (default), `Release`, and `Debug`. Buil
 
 </details>
 
+## Pro Version
+
+**WG-Win-Check-Pro** is a feature-rich enhanced edition currently used as an internal tool. If you would like to support the project with a donation or learn more about the Pro version, visit the [FreeBuf page](https://wiki.freebuf.com/good/goodDetail?id=341).
+
 ## License and Feedback
 
 This project is licensed under the [Apache License 2.0](LICENSE). Report issues and share suggestions through [GitHub Issues](https://github.com/SECWG/WG-Win-Check/issues).

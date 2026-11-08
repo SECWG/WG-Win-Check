@@ -130,6 +130,10 @@ build\Build.cmd Release
 
 </details>
 
+## Pro 版本
+
+**WG-Win-Check-Pro** 是功能更丰富的多功能增强版，目前作为内部工具使用。如果你希望赞赏支持项目，或对 Pro 版本感兴趣，可前往 [FreeBuf 页面](https://wiki.freebuf.com/good/goodDetail?id=341)了解更多。
+
 ## 许可证与反馈
 
 本项目采用 [Apache License 2.0](LICENSE)。欢迎通过 [GitHub Issues](https://github.com/SECWG/WG-Win-Check/issues) 反馈问题和建议。
