@@ -1,0 +1,11 @@
+# 源码文本格式约定，避免保存时混用编码和行尾。
+root = true
+
+[src/**/*.{c,cc,cpp,cxx,h,hpp,hxx,rc}]
+charset = utf-8-bom
+end_of_line = crlf
+indent_style = space
+indent_size = 4
+tab_width = 4
+trim_trailing_whitespace = true
+insert_final_newline = true

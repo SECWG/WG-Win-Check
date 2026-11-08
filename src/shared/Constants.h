@@ -1,0 +1,17 @@
+﻿// 产品与版本信息：供 C++ 和资源脚本共用，只修改下方三个版本数字。
+#pragma once
+
+#define PRODUCT_VERSION_MAJOR 2
+#define PRODUCT_VERSION_MINOR 0
+#define PRODUCT_VERSION_PATCH 0
+
+// 两层展开确保资源编译器和 C++ 编译器取得相同的版本字符串。
+#define WGWC_STRINGIFY_IMPL(value) #value
+#define WGWC_STRINGIFY(value) WGWC_STRINGIFY_IMPL(value)
+#define PRODUCT_VERSION_STRING            \
+    WGWC_STRINGIFY(PRODUCT_VERSION_MAJOR) \
+    "." WGWC_STRINGIFY(PRODUCT_VERSION_MINOR) "." WGWC_STRINGIFY(PRODUCT_VERSION_PATCH)
+#define PRODUCT_VERSION_WSTRING L"" PRODUCT_VERSION_STRING
+
+#define PRODUCT_NAME "WG-Win-Check"
+#define PRODUCT_DESCRIPTION "Windows 应急辅助工具"

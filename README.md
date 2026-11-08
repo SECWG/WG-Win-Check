@@ -1,221 +1,135 @@
-<p align="center">
-  <img width="128" height="128" alt="logo" src="https://github.com/user-attachments/assets/662573b5-d4bb-4ea1-933f-e128e646c395" />
+﻿<p align="center">
+  <img width="128" height="128" alt="WG-Win-Check logo" src="https://github.com/user-attachments/assets/662573b5-d4bb-4ea1-933f-e128e646c395" />
 </p>
 
-
-<h3 align="center">
-  <b>WG-Win-Check</b>
-</h3>
-
-<p align="center">
-  一款轻量便捷的 Windows 应急响应辅助工具
-</p>
-
+<h3 align="center">WG-Win-Check</h3>
+<p align="center">轻量便携的 Windows 应急响应辅助工具</p>
 <p align="center">
   <a href="https://github.com/SECWG/WG-Win-Check/stargazers">
-    <img src="https://img.shields.io/github/stars/SECWG/WG-Win-Check?style=flat-square&color=yellow" alt="Stars"/>
+    <img src="https://img.shields.io/github/stars/SECWG/WG-Win-Check?style=flat-square&amp;color=yellow" alt="Stars" />
   </a>
   <a href="https://github.com/SECWG/WG-Win-Check/network/members">
-    <img src="https://img.shields.io/github/forks/SECWG/WG-Win-Check?style=flat-square&color=orange" alt="Forks"/>
+    <img src="https://img.shields.io/github/forks/SECWG/WG-Win-Check?style=flat-square&amp;color=orange" alt="Forks" />
   </a>
   <a href="https://github.com/SECWG/WG-Win-Check/releases">
-    <img src="https://img.shields.io/github/v/release/SECWG/WG-Win-Check?style=flat-square&color=blue" alt="Release"/>
+    <img src="https://img.shields.io/github/v/release/SECWG/WG-Win-Check?style=flat-square&amp;color=blue" alt="Release" />
   </a>
   <a href="https://github.com/SECWG/WG-Win-Check/releases">
-    <img src="https://img.shields.io/github/downloads/SECWG/WG-Win-Check/total?style=flat-square&color=brightgreen" alt="Downloads"/>
+    <img src="https://img.shields.io/github/downloads/SECWG/WG-Win-Check/total?style=flat-square&amp;color=brightgreen" alt="Downloads" />
   </a>
   <a href="https://github.com/SECWG/WG-Win-Check#readme">
-    <img src="https://img.shields.io/badge/platform-Windows-blue?style=flat-square&logo=windows" alt="Platform"/>
+    <img src="https://img.shields.io/badge/platform-Windows-blue?style=flat-square&amp;logo=windows" alt="Platform" />
   </a>
 </p>
 
-  
+<p align="center">
+  <strong>简体中文</strong> | <a href="README.en.md">English</a>
+</p>
 
 ## 简介
 
-WG-Win-Check 是一款基于原生 Win32 API 实现的轻量级的 Windows 应急响应辅助工具，目前 64 位版本大小仅 800 余Kb，旨在以轻量便捷的特性，通过多维度的系统常规排查，能够有效帮助安全人员快速识别恶意进程、可疑启动项、异常网络连接等安全风险。
+WG-Win-Check 是一款轻量便携的 Windows 应急响应辅助工具，提供图形界面和命令行两种使用方式，帮助安全人员快速查看本机账户、进程、网络连接、持久化配置及活动痕迹。
 
-## 核心功能
+适用于主机安全排查、应急响应和批量数据采集。CLI 支持结构化结果输出，可供脚本、程序和 AI Agent 调用。
 
-### 风险概览
+## 功能介绍
 
-汇总核心模块产生的风险信息，用于快速查看当前主机最值得优先核查的对象。
+| 模块 | 主要功能 | CLI 入口 |
+| --- | --- | --- |
+| 风险概览 | 汇总用户、进程、自启动项、服务和计划任务的风险结果 | `risk` |
+| 用户排查 | 查看本地账户、隐藏账户线索、RID 异常和密码策略信息 | `user` |
+| 进程排查 | 查看路径、命令行、账户、签名及风险；GUI 提供进程树和 DLL 列表 | `process`、`process modules <pid>` |
+| 网络排查 | 查看 TCP/UDP、IPv4/IPv6 连接及关联进程，提取外联地址、查询 IP 归属地 | `network`、`network external` |
+| 自启动项 | 排查注册表启动项、启动文件夹、特殊启动配置及 WMI 订阅 | `autorun` |
+| 服务排查 | 查看服务状态、启动配置、关联文件、签名及风险 | `service` |
+| 计划任务 | 查看任务配置、触发器、执行动作、关联文件及风险 | `task` |
+| 文件排查 | 按目录和类型查找可执行文件、脚本及压缩包，按时间辅助定位 | `files` |
+| 事件日志 | 查询登录、进程创建、网络连接等常见系统事件 | GUI 页面 |
+| 威胁检索 | 在进程内存中检索文本，展示命中位置与上下文 | `threat <keyword>` |
+| 活动痕迹 | 查看 Prefetch、UserAssist、最近访问、登录和软件安装等记录 | `traces` |
 
-<img width="1281" height="655" alt="image" src="https://github.com/user-attachments/assets/bb9167cd-f845-4561-bddc-8cfe08b432f8" />
+CLI 另提供单文件信息、哈希、签名和单 IP 查询工具。`all` 可一次采集八个数据模块，并生成风险汇总。
 
+## 下载与运行
 
-### 用户排查
+- [下载发布包](https://github.com/SECWG/WG-Win-Check/releases)
 
-枚举系统所有用户账户（包括隐藏用户）基础信息、识别克隆账户和异常权限。
-<img width="1315" height="655" alt="image" src="https://github.com/user-attachments/assets/7e28c55e-fdb1-46f4-9684-3820ed9adf4b" />
+运行环境：**Windows 10/11 x64**。下载并解压发布包，建议以管理员权限运行。
 
+| 发布包 | 特点 |
+| --- | --- |
+| `ReleaseMT` | 推荐用于便携使用，无需额外安装 VC++ 运行库 |
+| `Release` | EXE 较小，需要安装 Microsoft Visual C++ x64 运行库 |
 
+**图形界面：** 运行 `WG-Win-Check.exe`，选择对应模块进行采集、筛选、查看和导出。
 
-### 进程排查
+**命令行：** 在终端调用 `WG-Win-Check-CLI.exe`，按命令采集数据或使用单项工具。
 
-监控列举系统所有进程，展示基础进程信息字段，支持按进程类型、签名、关键字过滤。提供进程树、DLL 模块、执行文件 hash、在线验证、签名校验以及进程结束操作。
+## CLI 快速开始
 
-<img width="1313" height="660" alt="image" src="https://github.com/user-attachments/assets/a45476fa-a507-4fec-8945-464fddc685e8" />
-<img width="1318" height="660" alt="image" src="https://github.com/user-attachments/assets/93dd82e2-6583-4a9f-bbd8-2e1502f93c69" />
+在 EXE 所在目录执行。默认输出 JSON；`--output` 保存结果并覆盖同名文件，父目录须已存在。CSV 仅支持单个采集模块或 `risk`，须配合 `--output`。
 
+```powershell
+# 查看命令帮助
+.\WG-Win-Check-CLI.exe help
 
+# 采集单个模块或全部八个数据模块
+.\WG-Win-Check-CLI.exe process
+.\WG-Win-Check-CLI.exe all
 
-### 网络连接排查
+# 采集并汇总五个核心模块的风险
+.\WG-Win-Check-CLI.exe risk
 
-监控所有 TCP/UDP 连接 ，展示基础连接信息及关联进程，支持按协议、状态、外联、关键字进行快速过滤筛选，提供一键提取所有外联 IP。
+# 导出 JSON 或单模块 CSV
+.\WG-Win-Check-CLI.exe all --output ".\snapshot.json"
+.\WG-Win-Check-CLI.exe process --format csv --output ".\processes.csv"
 
-<img width="1314" height="660" alt="image" src="https://github.com/user-attachments/assets/61608258-799a-4d59-8747-09f307cf0fef" />
+# 单文件签名、外联地址和指定进程内存文本检索
+.\WG-Win-Check-CLI.exe file signature "C:\Windows\System32\cmd.exe"
+.\WG-Win-Check-CLI.exe network external
+.\WG-Win-Check-CLI.exe threat "keyword" --pid 1234 --context 100
+```
 
+## 详细文档
 
+| 文档 | 内容 |
+| --- | --- |
+| [CLI 使用说明](docs/cli.md) | 完整命令、参数、结果字段和调用示例 |
+| [JSON Schema](docs/cli-schema.json) | 机器接口的数据结构定义 |
+| [Agent 调用技能](skills/wg-win-check-cli/SKILL.md) | CLI 命令、参数和结果格式（英文） |
+| [更新历史](CHANGELOG.md) | 各版本功能与改进记录 |
 
-### 启动项排查
+## 源码构建
 
-扫描系统常见自启动项，包括：注册表启动项（Run、RunOnce、RunServices）、启动文件夹、Winlogon、IFEO、AppInit_DLLs、RunOnceEx、WMI 订阅等驻留手段。
+安装 **Visual Studio 2022 或 Build Tools 2022** 的 C++ 桌面开发工具（MSVC v143、Windows SDK），以及 **CMake 3.21+**。也可使用 VS 自带的 C++ CMake 工具组件。
 
-<img width="1315" height="657" alt="image" src="https://github.com/user-attachments/assets/1a824b66-fdef-447d-9203-24ebc2b7a416" />
+在源码根目录执行：
 
+```bat
+rem 默认构建 ReleaseMT
+build\Build.cmd
 
+rem 构建 Release
+build\Build.cmd Release
+```
 
-### 服务排查
+支持 `ReleaseMT`（默认）、`Release` 和 `Debug`，构建产物位于 `.build/cmake/bin/<配置>/`。
 
-枚举所有系统服务，可基于服务类型、签名、启动类型、服务状态进行过滤，包含签名校验及其他基础风险高亮规则，同时可快捷管理服务。
+## 界面预览
 
-<img width="1317" height="655" alt="image" src="https://github.com/user-attachments/assets/aa24ab2e-ffda-4020-8b33-6c04cc089b32" />
+<details>
+<summary>查看进程、网络、自启动项与计划任务截图</summary>
 
+![进程排查](https://github.com/user-attachments/assets/2c77d844-80bc-4b2c-9056-1b1262673636)
 
+![网络排查](https://github.com/user-attachments/assets/cab25d08-fa68-4f68-91bc-5309ade843ef)
 
-### 计划任务排查
+![自启动项](https://github.com/user-attachments/assets/6895fd92-6ebf-4eea-bb13-bf31a9d5297f)
 
-列举所有计划任务，展示基础信息包括执行程序、文件路径、运行实际等，支持类型(系统/用户)、运行状态、关键字快速过滤。提供基础计划任务暂停、运行、删除等快捷操作。
+![计划任务](https://github.com/user-attachments/assets/7c1ed08b-46fe-4662-9eb0-72839b2acd74)
 
-<img width="1315" height="658" alt="image" src="https://github.com/user-attachments/assets/2ca07bb9-bd9a-44f4-ad9f-5728178a3818" />
+</details>
 
+## 许可证与反馈
 
-
-### 文件排查
-
-扫描常见的恶意文件落地目录包括下载、临时目录，过滤常见的恶意文件落地类型，支持自定义扫描路径如微信、飞书文件下载路径的扫描。
-
-<img width="1314" height="656" alt="image" src="https://github.com/user-attachments/assets/85a58e4a-02ad-4381-ad62-0bcdaebb0e6e" />
-
-
-
-### 事件日志排查
-
-提供常见事件类型包括登录、进程创建、日志清除的排查，以及快速关联打开操作。
-
-<img width="1311" height="658" alt="image" src="https://github.com/user-attachments/assets/90a46ef5-4da4-4811-93c8-27182fd7af48" />
-
-
-
-### 威胁检索
-
-基于 IOC 进程内存特征的威胁检索，检索上下文，便于快速定位快速定位可疑进程。
-
-<img width="1310" height="653" alt="image" src="https://github.com/user-attachments/assets/b8d3f6d4-2c39-4225-8cdb-50f2baf80d06" />
-
-
-### 活动痕迹
-聚合用户常见活动，解析UserAssist、Prefetch、最近访问、登录等多种活动来源，梳理程序执行、最近访问等活动时间线。
-<img width="1315" height="653" alt="image" src="https://github.com/user-attachments/assets/659acc7b-27ea-420a-a8b5-130d42d87264" />
-    
-
-## 获取方式
-    
--   Github 下载：[https://github.com/SECWG/WG-Win-Check/releases](https://github.com/SECWG/WG-Win-Check/releases)
-    
-
-## 更新日志
-
-### v1.9.0 (2026-08-29)
-
-1. 【优化】优化白加黑判定细节，提升判定准确性
-2. 【优化】文件扫描配置，默认移除“其他”类型扫描
-3. 【修复】修复网络排查默认外联筛选在首次加载数据时未生效的问题
-4. 【移除】移除计划任务隐藏属性风险判定，降低噪声
-5. 【其他】其他细节问题优化调整
-
-### v1.8.0 (2026-07-21)
-
-1. 【新增】普通权限启动时增加权限提示
-2. 【新增】网络排查和威胁检索列表增加关联进程图标
-3. 【优化】统一各模块右键复制、文件目录和文件属性操作，服务管理与任务计划程序调整为工具栏入口
-4. 【优化】网络排查筛选项调整为协议、状态和连接类型下拉框
-5. 【优化】整体界面字号、控件高度、列宽和初始窗口尺寸，改善不同系统及 DPI 缩放下的显示效果
-
-### v1.7.0 (2026-07-05)
-
-1. 【新增】自启动项新增 WMI 订阅采集，支持识别 CommandLineEventConsumer 与 ActiveScriptEventConsumer
-2. 【新增】进程、服务、自启动项、计划任务列表新增文件图标展示，便于快速区分程序来源
-3. 【优化】收敛白加黑利用判定规则，进一步降低噪声
-
-### v1.6.0 (2026-06-27)
-
-1. 【新增】新增风险概览首页，集中汇总用户、进程、自启动项、服务、计划任务核心模块风险结果
-2. 【新增】网络排查新增 IP 归属列，支持外联 IP 归属信息展示
-3. 【新增】计划任务新增关联文件字段，支持从命令包装器参数和 COM Handler 中提取真实关联文件
-4. 【新增】事件日志新增 5156 网络连接事件，登录成功事件默认排除服务类型登录
-5. 【优化】进程、服务、自启动项、计划任务签名校验改为自动完成，并展示证书发布者信息
-6. 【优化】收敛未签名风险规则，进程模块不再单独将未签名作为风险，持久化模块按第三方和场景分级
-7. 【优化】自启动项特殊配置类启动点独立处理，避免误套文件签名、公司信息和文件不存在规则
-8. 【优化】用户排查细化隐藏用户来源，区分登录界面隐藏、$隐藏用户、SAM/API不一致
-9. 【优化】活动痕迹 Prefetch 路径解析支持设备路径和 Volume GUID 还原为盘符路径
-10. 【其他】风险判定、筛选默认项、状态反馈和界面字段等细节优化
-
-### v1.5.0 (2026-05-31)
-
-1. 【移除】移除授权相关校验措施
-2. 【新增】文件排查新增"扫描配置"按钮统一管理扫描范围和文件类型,文件排查新增排除过滤输入框
-3. 【新增】服务排查新增关联运行进程PID字段
-4. 【新增】网络排查右键新增"在线查询"跳转
-5. 【优化】打开文件位置修复含引号路径无法解析的问题
-6. 【其他】其他细节优化/修复
-
-### v1.4.0 (2026-04-06)
-
-1. 【新增】事件日志优化提取逻辑，新增 PS-400查询，rdp-1024-出站服务器IP字段提取修复
-2. 【新增】网络排查新增"内网"复选框，外连模式下可选择是否显示内网 IP
-3. 【新增】关于页面新增"检查更新"功能，便于手动检测最新版本
-4. 【新增】威胁检索新增"内存限制(MB)"输入框，支持自定义单区域扫描上限
-5. 【新增】文件排查默认扫描目录新增 C:\inetpub
-6. 【优化】进程、服务、计划任务模块刷新按钮保留当前过滤状态，不再重置筛选条件
-7. 【优化】授权机制更新，适配最新授权机制
-8. 【优化】软件安装记录改为通过关联目录获取安装时间，提升准确性，排除噪声项目
-9. 【其他】其他细节优化/修复
-
-### v1.3.0 (2026-03-01)
-
-1. 【修复】修复低版本prefech文件解析问题
-2. 【优化】优化部分风险高亮规则，减少非必要噪声
-3. 【优化】授权窗口新增“授权中心”，移除非必要“浏览文件”功能
-4. 【优化】其他细节优化
-
-### v1.2.0 (2026-02-08)
-
-1. 【新增】活动痕迹模块：聚合用户常见活动痕迹，包括UserAssist、Prefetch、最近访问、登录等活动，梳理活动时间线
-2. 【新增】事件日志新增 杀软检出 查询
-3. 【优化】其他细节优化
-4. 【修复】修复右键异常刷新，过滤状态重置BUG
-
-### v1.1.0 (2026-01-31)
-
-1. 【新增】文件排查模块新增时间排序逻辑，新增自定义后缀扫描
-2. 【优化】取消部分非必要风险判定规则，优化风险描述字段
-3. 【优化】优化部分默认过滤规则，新增其他关键字段过滤
-4. 【优化】网络排查模块移除“UDP”与“其他”复选框的误关联
-5. 【修复】修复自启动模块右键菜单点击误刷新，事件日志模块修复右键失效问题
-
-### v1.0.0 (2026-01-18)
-
-✨ 首次发布:
-
-1. 用户排查 - 枚举系统用户账户，识别隐藏用户和克隆账户
-2. 进程排查 - 监控系统进程，进程树查看、DLL分析、签名验证和在线威胁查询，标注可疑进程
-3. 网络连接排查 - 监控TCP/UDP连接，快速过滤方式
-4. 启动项排查 - 全面扫描注册表启动项、启动文件夹、IFEO劫持等多种启动方式
-5. 服务排查 - 枚举系统服务，标注可疑服务
-6. 计划任务排查 - 扫描系统计划任务，显示任务状态、触发器和执行程序
-7. 文件排查 - 扫描指定目录常见落地文件类型，内置常见威胁落地目录+自定义路径扫描
-8. 事件日志排查 - 分析Windows安全事件日志，筛选登录失败、权限提升等关键事件
-9. 威胁检索 - 基于进程内存特征的威胁检索，快速定位威胁进程
-
+本项目采用 [Apache License 2.0](LICENSE)。欢迎通过 [GitHub Issues](https://github.com/SECWG/WG-Win-Check/issues) 反馈问题和建议。

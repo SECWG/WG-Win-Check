@@ -1,0 +1,34 @@
+﻿#pragma code_page(65001)
+
+#include <winres.h>
+#include "../shared/Constants.h"
+
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+
+1 VERSIONINFO
+ FILEVERSION PRODUCT_VERSION_MAJOR,PRODUCT_VERSION_MINOR,PRODUCT_VERSION_PATCH,0
+ PRODUCTVERSION PRODUCT_VERSION_MAJOR,PRODUCT_VERSION_MINOR,PRODUCT_VERSION_PATCH,0
+ FILEFLAGSMASK 0x3fL
+ FILEFLAGS 0x0L
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "CompanyName", "SECWG\0"
+            VALUE "FileDescription", PRODUCT_DESCRIPTION "\0"
+            VALUE "FileVersion", PRODUCT_VERSION_STRING "\0"
+            VALUE "InternalName", "WG-Win-Check-CLI\0"
+            VALUE "OriginalFilename", "WG-Win-Check-CLI.exe\0"
+            VALUE "ProductName", PRODUCT_NAME "\0"
+            VALUE "ProductVersion", PRODUCT_VERSION_STRING "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END

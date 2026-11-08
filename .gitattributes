@@ -1,0 +1,40 @@
+# 文本文件默认启用自动行尾规范化。
+* text=auto
+
+# Win32 文本源码检出时统一使用 CRLF；UTF-8 BOM 由编辑器约定维护。
+src/**/*.c text eol=crlf
+src/**/*.cc text eol=crlf
+src/**/*.cpp text eol=crlf
+src/**/*.cxx text eol=crlf
+src/**/*.h text eol=crlf
+src/**/*.hpp text eol=crlf
+src/**/*.hxx text eol=crlf
+src/**/*.rc text eol=crlf
+
+# Windows 构建脚本使用 CRLF，避免跨平台检出改变批处理行尾。
+build/*.cmd text eol=crlf
+
+# 图标为二进制资源，不进行文本转换。
+*.ico binary
+
+# 源码归档排除本地资料；不替代提交清单检查或清理已有历史。
+/.local-docs export-ignore
+/tests export-ignore
+/.build export-ignore
+/.agents export-ignore
+/.codex export-ignore
+/.vs export-ignore
+/AGENTS.md export-ignore
+/CLAUDE.md export-ignore
+/backport-todolist.md export-ignore
+
+# 公开归档保留 CMake 构建脚本，不包含本地 VS 工程及旧属性表。
+/*.sln export-ignore
+/*.slnx export-ignore
+/*.slnf export-ignore
+/*.vcxproj export-ignore
+/*.vcxproj.filters export-ignore
+/*.vcxproj.user export-ignore
+/build/* export-ignore
+/build/Build.cmd -export-ignore
+/build/Setup-VS.cmd -export-ignore

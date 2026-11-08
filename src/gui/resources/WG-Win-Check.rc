@@ -1,0 +1,288 @@
+﻿// Microsoft Visual C++ 生成的资源脚本。
+//
+#pragma code_page(65001)
+
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// 由 TEXTINCLUDE 2 资源生成。
+//
+#ifndef APSTUDIO_INVOKED
+#include "../common/targetver.h"
+#endif
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文（简体，中国）资源
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+
+// 文件属性与关于窗口共用版本常量，不参与任何启动校验。
+1 VERSIONINFO
+ FILEVERSION PRODUCT_VERSION_MAJOR,PRODUCT_VERSION_MINOR,PRODUCT_VERSION_PATCH,0
+ PRODUCTVERSION PRODUCT_VERSION_MAJOR,PRODUCT_VERSION_MINOR,PRODUCT_VERSION_PATCH,0
+ FILEFLAGSMASK 0x3fL
+ FILEFLAGS 0x0L
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "CompanyName", "SECWG\0"
+            VALUE "FileDescription", PRODUCT_DESCRIPTION "\0"
+            VALUE "FileVersion", PRODUCT_VERSION_STRING "\0"
+            VALUE "InternalName", PRODUCT_NAME "\0"
+            VALUE "OriginalFilename", "WG-Win-Check.exe\0"
+            VALUE "ProductName", PRODUCT_NAME "\0"
+            VALUE "ProductVersion", PRODUCT_VERSION_STRING "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 图标。
+//
+
+// 将 ID 最小的图标放在首位，
+// 确保应用程序图标在各系统上保持一致。
+IDI_WGWINCHECK        ICON                    "WG-Win-Check.ico"
+
+IDI_SMALL               ICON                    "small.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 菜单。
+//
+
+IDC_WGWINCHECK MENU
+BEGIN
+MENUITEM "扫描(&S)", IDM_REFRESH
+MENUITEM "导出(&E)", IDM_EXPORT_CSV
+POPUP "命令(&C)"
+BEGIN
+MENUITEM "Cmd(&C)", IDM_CMD_CMD
+MENUITEM "PowerShell(&P)", IDM_CMD_POWERSHELL
+END
+MENUITEM "关于(&A)", IDM_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 快捷键。
+//
+
+IDC_WGWINCHECK ACCELERATORS
+BEGIN
+"?", IDM_ABOUT, ASCII, ALT
+"/", IDM_ABOUT, ASCII, ALT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 对话框。
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 220, 148
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于"
+FONT 9, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+ICON            IDI_WGWINCHECK, IDC_STATIC, 14, 14, 21, 20
+LTEXT           PRODUCT_NAME, IDC_STATIC, 42, 14, 100, 8, SS_NOPREFIX
+LTEXT           "", IDC_ABOUT_VERSION, 42, 26, 70, 8
+LTEXT           "", IDC_ABOUT_UPDATE_STATUS, 115, 26, 90, 8
+LTEXT           PRODUCT_DESCRIPTION, IDC_STATIC, 42, 40, 150, 8
+LTEXT           "程序作者: SECWG", IDC_STATIC, 14, 58, 80, 8
+LTEXT           "帮助手册:", IDC_STATIC, 14, 72, 40, 8
+LTEXT           "WG-Win-Check 上手指南", IDC_ABOUT_LINK, 56, 72, 160, 8, SS_NOTIFY
+LTEXT           "版权所有 (c) 2026 SECWG", IDC_STATIC, 14, 90, 120, 8
+PUSHBUTTON      "检查更新", IDC_ABOUT_BTN_CHECK_UPDATE, 14, 127, 55, 14
+DEFPUSHBUTTON   "确定", IDOK, 160, 127, 50, 14, WS_GROUP
+END
+
+IDD_DLL_MODULES DIALOGEX 0, 0, 429, 249
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "DLL模块列表"
+FONT 9, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+CONTROL         "", IDC_DLL_LISTVIEW, "SysListView32", LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP, 7, 7, 415, 220
+DEFPUSHBUTTON   "关闭", IDOK, 371, 231, 50, 14
+END
+
+IDD_FILE_HASHES DIALOGEX 0, 0, 293, 115
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "文件哈希"
+FONT 9, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+LTEXT           "文件:", IDC_STATIC, 7, 9, 20, 8
+EDITTEXT        IDC_HASH_FILEPATH, 30, 7, 259, 12, ES_AUTOHSCROLL | ES_READONLY
+LTEXT           "MD5:", IDC_STATIC, 7, 28, 20, 8
+EDITTEXT        IDC_HASH_MD5, 30, 26, 259, 12, ES_AUTOHSCROLL | ES_READONLY
+LTEXT           "SHA1:", IDC_STATIC, 7, 47, 22, 8
+EDITTEXT        IDC_HASH_SHA1, 30, 45, 259, 12, ES_AUTOHSCROLL | ES_READONLY
+LTEXT           "SHA256:", IDC_STATIC, 7, 66, 30, 8
+EDITTEXT        IDC_HASH_SHA256, 40, 64, 249, 12, ES_AUTOHSCROLL | ES_READONLY
+LTEXT           "", IDC_HASH_COPY_STATUS, 7, 85, 170, 8
+DEFPUSHBUTTON   "关闭", IDOK, 232, 96, 50, 14
+END
+
+IDD_PROCESS_TREE DIALOGEX 0, 0, 210, 150
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "进程树"
+FONT 9, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+EDITTEXT        IDC_TREE_TEXT, 7, 7, 196, 120, ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY | WS_VSCROLL
+DEFPUSHBUTTON   "关闭", IDOK, 153, 129, 50, 14
+END
+
+IDD_SCAN_CONFIG DIALOGEX 0, 0, 410, 165
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "扫描配置"
+FONT 9, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "后缀配置", IDC_STATIC, 7, 5, 193, 68
+    AUTOCHECKBOX    "可执行文件 (.exe .dll .bin .scr .com .msi)", IDC_CFG_EXECUTABLE, 14, 16, 180, 10, WS_TABSTOP
+    AUTOCHECKBOX    "脚本文件 (.ps1 .vbs .bat .cmd .wsf .hta)", IDC_CFG_SCRIPTS, 14, 28, 180, 10, WS_TABSTOP
+    AUTOCHECKBOX    "压缩文件 (.zip .rar .7z)", IDC_CFG_ARCHIVES, 14, 40, 180, 10, WS_TABSTOP
+    AUTOCHECKBOX    "其他 (.lnk .conf .config)", IDC_CFG_OTHER, 14, 52, 180, 10, WS_TABSTOP
+    LTEXT           "自定义后缀（一行一个）：", IDC_STATIC, 7, 78, 193, 8
+    EDITTEXT        IDC_CFG_CUSTOM_EXT, 7, 88, 193, 42, ES_MULTILINE | ES_AUTOVSCROLL | ES_WANTRETURN | WS_VSCROLL | WS_TABSTOP
+
+    GROUPBOX        "路径配置", IDC_STATIC, 207, 5, 196, 68
+    AUTOCHECKBOX    "用户下载目录 (C:\\Users\\*\\Downloads)", IDC_CFG_DOWNLOADS, 214, 16, 183, 10, WS_TABSTOP
+    AUTOCHECKBOX    "用户临时目录 (C:\\Users\\*\\AppData\\Local\\Temp)", IDC_CFG_USERTEMP, 214, 28, 183, 10, WS_TABSTOP
+    AUTOCHECKBOX    "系统临时目录 (C:\\Windows\\Temp)", IDC_CFG_SYSTEMP, 214, 40, 183, 10, WS_TABSTOP
+    AUTOCHECKBOX    "C盘非系统目录 (排除Windows/Users/Program Files等)", IDC_CFG_NONSYS, 214, 52, 183, 10, WS_TABSTOP
+    LTEXT           "自定义路径（一行一个）：", IDC_STATIC, 207, 78, 196, 8
+    EDITTEXT        IDC_CFG_CUSTOM_PATH, 207, 88, 196, 42, ES_MULTILINE | ES_AUTOVSCROLL | ES_WANTRETURN | WS_VSCROLL | WS_TABSTOP
+
+    DEFPUSHBUTTON   "确定", IDOK, 352, 142, 50, 14
+    PUSHBUTTON      "取消", IDCANCEL, 295, 142, 50, 14
+END
+
+
+IDD_ELEVATION_PROMPT DIALOGEX 0, 0, 250, 60
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "权限提示"
+FONT 9, "Microsoft YaHei UI", 0, 0, 0x1
+BEGIN
+    LTEXT           "当前以非管理员权限运行，部分功能可能受限。是否继续？", IDC_ELEVATION_MESSAGE, 10, 12, 230, 12, SS_LEFT
+    LTEXT           "", IDC_ELEVATION_STATUS, 10, 37, 94, 10, SS_LEFT
+    DEFPUSHBUTTON   "管理员运行", IDC_ELEVATION_BTN_ADMIN, 109, 34, 57, 16
+    PUSHBUTTON      "继续", IDC_ELEVATION_BTN_CONTINUE, 171, 34, 34, 16
+    PUSHBUTTON      "退出", IDCANCEL, 210, 34, 32, 16
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ELEVATION_REQUESTING        "正在请求管理员权限..."
+    IDS_ELEVATION_CANCELLED         "已取消管理员授权"
+    IDS_ELEVATION_FAILED            "无法启动管理员进程（错误码 %lu）"
+    IDS_ELEVATION_DIALOG_FAILED     "权限提示窗口创建失败，程序将以普通用户权限继续运行。"
+    IDS_ELEVATION_CAPTION           "权限提示"
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 资源布局设计信息（DESIGNINFO）。
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+IDD_ABOUTBOX, DIALOG
+BEGIN
+LEFTMARGIN, 7
+RIGHTMARGIN, 213
+TOPMARGIN, 7
+BOTTOMMARGIN, 123
+END
+
+IDD_DLL_MODULES, DIALOG
+BEGIN
+END
+
+IDD_FILE_HASHES, DIALOG
+BEGIN
+VERTGUIDE, 289
+END
+END
+#endif    // 资源编辑器条件结束（APSTUDIO_INVOKED）。
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// 资源文本包含配置（TEXTINCLUDE）。
+//
+
+1 TEXTINCLUDE
+BEGIN
+"resource.h\0"
+END
+
+2 TEXTINCLUDE
+BEGIN
+"#ifndef APSTUDIO_INVOKED\r\n"
+"#include ""../common/targetver.h""\r\n"
+"#endif\r\n"
+"#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+"#include ""windows.h""\r\n"
+"#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+"\0"
+END
+
+3 TEXTINCLUDE
+BEGIN
+"\r\n"
+"\0"
+END
+
+#endif    // 资源编辑器条件结束（APSTUDIO_INVOKED）。
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 字符串表。
+//
+
+STRINGTABLE
+BEGIN
+IDS_APP_TITLE           PRODUCT_NAME
+IDC_WGWINCHECK        "WGWINCHECK"
+END
+
+#endif    // 中文（简体，中国）资源
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// 由 TEXTINCLUDE 3 资源生成。
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // 非资源编辑器条件结束（!APSTUDIO_INVOKED）。
+
